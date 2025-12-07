@@ -10,6 +10,7 @@ from .helpers import (
     format_price,
     truncate_string
 )
+from .notifications import send_email_notification
 
 __all__ = [
     "clean_price_string",
@@ -18,5 +19,6 @@ __all__ = [
     "get_platform_from_url",
     "calculate_price_change_percentage",
     "format_price",
-    "truncate_string"
+    "truncate_string",
+    "send_email_notification",
 ]
