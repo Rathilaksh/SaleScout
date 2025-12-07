@@ -8,6 +8,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from config import FRONTEND_URL, DEBUG
 from database import init_db
 from routers.users import router as users_router
+from routers.trackers import router as trackers_router
+from routers.price_history import router as price_history_router
 
 # Create FastAPI application
 app = FastAPI(
@@ -43,6 +45,8 @@ def on_shutdown():
 
 # Include routers
 app.include_router(users_router)
+app.include_router(trackers_router)
+app.include_router(price_history_router)
 
 
 # Root endpoint
