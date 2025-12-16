@@ -1,0 +1,79 @@
+# Health Check Endpoint
+GET http://localhost:8000/health
+
+###
+
+# User Registration
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "testpassword123"
+}
+
+###
+
+# User Login
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "testpassword123"
+}
+
+###
+
+# Get Current User (replace YOUR_TOKEN)
+GET http://localhost:8000/auth/me
+Authorization: Bearer YOUR_TOKEN
+
+###
+
+# Create Tracker (replace YOUR_TOKEN)
+POST http://localhost:8000/trackers
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN
+
+{
+  "product_url": "https://www.amazon.in/dp/B0EXAMPLE",
+  "target_price": 999.99,
+  "polling_interval_minutes": 60
+}
+
+###
+
+# List All Trackers (replace YOUR_TOKEN)
+GET http://localhost:8000/trackers
+Authorization: Bearer YOUR_TOKEN
+
+###
+
+# Get Tracker Details (replace YOUR_TOKEN and TRACKER_ID)
+GET http://localhost:8000/trackers/1
+Authorization: Bearer YOUR_TOKEN
+
+###
+
+# Update Tracker (replace YOUR_TOKEN and TRACKER_ID)
+PUT http://localhost:8000/trackers/1
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN
+
+{
+  "target_price": 899.99,
+  "polling_interval_minutes": 120
+}
+
+###
+
+# Get Price History (replace YOUR_TOKEN and TRACKER_ID)
+GET http://localhost:8000/trackers/1/history
+Authorization: Bearer YOUR_TOKEN
+
+###
+
+# Delete Tracker (replace YOUR_TOKEN and TRACKER_ID)
+DELETE http://localhost:8000/trackers/1
+Authorization: Bearer YOUR_TOKEN
